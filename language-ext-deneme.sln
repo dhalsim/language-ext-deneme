@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "language-ext-deneme", "language-ext-deneme\language-ext-deneme.csproj", "{2632F0F0-E819-4570-B1A6-AF4F997C6330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageExt.Core", "..\..\..\GitHub\language-ext\LanguageExt.Core\LanguageExt.Core.csproj", "{C0FA07A0-8B83-4FA5-ACFB-14185D5C4484}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AppVeyorBuild|Any CPU = AppVeyorBuild|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2632F0F0-E819-4570-B1A6-AF4F997C6330}.AppVeyorBuild|Any CPU.ActiveCfg = Release|Any CPU
+		{2632F0F0-E819-4570-B1A6-AF4F997C6330}.AppVeyorBuild|Any CPU.Build.0 = Release|Any CPU
+		{2632F0F0-E819-4570-B1A6-AF4F997C6330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2632F0F0-E819-4570-B1A6-AF4F997C6330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2632F0F0-E819-4570-B1A6-AF4F997C6330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2632F0F0-E819-4570-B1A6-AF4F997C6330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0FA07A0-8B83-4FA5-ACFB-14185D5C4484}.AppVeyorBuild|Any CPU.ActiveCfg = AppVeyorBuild|Any CPU
+		{C0FA07A0-8B83-4FA5-ACFB-14185D5C4484}.AppVeyorBuild|Any CPU.Build.0 = AppVeyorBuild|Any CPU
+		{C0FA07A0-8B83-4FA5-ACFB-14185D5C4484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0FA07A0-8B83-4FA5-ACFB-14185D5C4484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0FA07A0-8B83-4FA5-ACFB-14185D5C4484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0FA07A0-8B83-4FA5-ACFB-14185D5C4484}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
