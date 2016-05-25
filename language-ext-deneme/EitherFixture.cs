@@ -9,12 +9,13 @@ namespace language_ext_deneme
     class EitherFixture
     {
         private static readonly Func<string, string> NameErrorMessage = (name) => $"{name} is not a suitable name";
+        private static readonly Func<string, string> LengthErrorMessage = (name) => $"{name}'s length is expected to be at least one";
 
         [Test]
         public void Should_get_suitable_name_capitalized()
         {
             match(
-                CapitalizeName(GetSuitableName("barış")),
+                map(GetSuitableName("barış"), CapitalizeName),
                 Right: s1 => Assert.AreEqual(s1, "Barış"),
                 Left: Assert.Fail
             );
@@ -24,26 +25,35 @@ namespace language_ext_deneme
         public void Should_get_error_for_non_suitable_name()
         {
             const string name = "mustafa";
+
             match(
-                CapitalizeName(GetSuitableName(name)),
-                Right: s1 =>
-                {
-                    Assert.Fail(s1);
-                    return s1;
-                },
-                Left: error => NameErrorMessage(name)
+                GetSuitableName(name)
+                    .Map(CapitalizeName),
+                Right: s1 => Assert.Fail(),
+                Left: (n) => NameErrorMessage(n)
             );
         }
 
-        private Either<string, string> CapitalizeName(Either<string, string> name)
+        /// <summary>
+        /// string -> Either&lt;string, string&gt;
+        /// Capitalizes the name.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        private Either<string, string> CapitalizeName(string name)
         {
-            return match(
-                name,
-                Right: n => Right<string, string>(char.ToUpper(n[0]) + n.Substring(1)),
-                Left: Left<string, string>
-            );
+            if (string.IsNullOrEmpty(name) || name.Length < 2)
+                return Left<string, string>(LengthErrorMessage(name));
+
+            return Right<string, string>(char.ToUpper(name[0]) + name.Substring(1));
         }
 
+        /// <summary>
+        /// string -> Either&lt;string, string&gt;
+        /// Gets the name of the suitable.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
         private Either<string, string> GetSuitableName(string name)
         {
             if (name == "barış")

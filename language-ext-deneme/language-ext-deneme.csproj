@@ -71,7 +71,6 @@
   <ItemGroup>
     <Compile Include="CompositionFixture.cs" />
     <Compile Include="EitherFixture.cs" />
-    <Compile Include="Extensions\OptionExtensions.cs" />
     <Compile Include="ImmutableSonarRuleFixture.cs" />
     <Compile Include="LinqFixture.cs" />
     <Compile Include="MapOptionFixture.cs" />
