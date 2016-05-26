@@ -53,6 +53,28 @@ namespace language_ext_deneme
                 });
         }
 
+        [Test]
+        public void Should_get_string_or_empty()
+        {
+            var realPerson = new Person("Barış") { Address = Some(new Address(Some("İzmir"))) };
+            Assert.AreEqual("İzmir", GetCityOfPersonOrEmpty(realPerson));
+
+            var noneAddressedPerson = new Person("Barış") { Address = None };
+            Assert.AreEqual("", GetCityOfPersonOrEmpty(noneAddressedPerson));
+
+            noneAddressedPerson = new Person("Barış") { Address = Some(new Address(None)) };
+            Assert.AreEqual("", GetCityOfPersonOrEmpty(noneAddressedPerson));
+        }
+
+        private static string GetCityOfPersonOrEmpty(Person realPerson)
+        {
+            return match(
+                realPerson.Address,
+                Some: address => address.City.IfNone(() => ""),
+                None: () => ""
+            );
+        }
+
         private static Either<string, string> GetCityOfPerson(Person realPerson)
         {
             return match(
