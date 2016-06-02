@@ -73,6 +73,7 @@
     <Compile Include="EitherFixture.cs" />
     <Compile Include="ImmutableSonarRuleFixture.cs" />
     <Compile Include="LinqFixture.cs" />
+    <Compile Include="ListFixture.cs" />
     <Compile Include="MapOptionFixture.cs" />
     <Compile Include="NestedNullChecksFixture.cs" />
     <Compile Include="OptionFixture.cs" />
@@ -80,7 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="language-ext-deneme.ruleset" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\GitHub\language-ext\LanguageExt.Core\LanguageExt.Core.csproj">
